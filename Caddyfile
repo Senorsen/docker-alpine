@@ -1,0 +1,9 @@
+0.0.0.0:80
+
+root /srv/web
+
+log stdout
+
+errors stdout
+
+ext .html .htm
