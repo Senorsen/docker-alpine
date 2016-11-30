@@ -3,7 +3,7 @@ MAINTAINER Senorsen <senorsen.zhang@gmail.com>
 
 RUN mkdir -p /go
 ENV GOPATH /go
-RUN apk --no-cache add git go bash
+RUN apk --no-cache add git go bash build-base
 COPY 0000-add-git-realip-cors.patch /tmp
 RUN go get github.com/mholt/caddy/caddy \
     && go get github.com/abiosoft/caddy-git \
@@ -15,7 +15,7 @@ RUN go get github.com/mholt/caddy/caddy \
     && ./build.bash \
     && cp caddy /usr/bin/ \
     && rm -rf /go
-RUN apk del go bash
+RUN apk del go bash build-base
 
 COPY Caddyfile /etc/Caddyfile
 
