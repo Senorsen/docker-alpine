@@ -10,7 +10,7 @@ RUN go get github.com/mholt/caddy/caddy \
     && go get github.com/captncraig/caddy-realip \
     && go get github.com/captncraig/cors \
     && cd ${GOPATH}/src/github.com/mholt/caddy/caddy \
-    && git checkout 9e98d6cd5280c477f1720f3ea1000b1f4f1309b3 \
+    && git checkout v0.9.5 \
     && patch caddymain/run.go < /tmp/0000-add-git-realip-cors.patch \
     && ./build.bash \
     && cp caddy /usr/bin/ \
