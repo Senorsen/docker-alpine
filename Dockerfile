@@ -4,6 +4,8 @@ MAINTAINER Senorsen <senorsen.zhang@gmail.com>
 ENV GOPATH /go
 RUN mkdir -p ${GOPATH}
 RUN apk --no-cache add git go bash build-base
+# workaround
+RUN git config --global http.https://gopkg.in.followRedirects true
 COPY 0000-add-git-realip-cors.patch /tmp
 RUN go get github.com/mholt/caddy/caddy \
     && go get github.com/abiosoft/caddy-git \
